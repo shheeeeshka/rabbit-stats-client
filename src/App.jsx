@@ -13,20 +13,7 @@ function App() {
   const [data, setData] = useState([]);
   const [newShopUrl, setNewShopUrl] = useState("");
   const [modalInfo, setModalInfo] = useState(null);
-  const [shops, setShops] = useState([
-    { name: "AOS", url: "https://wildb.ru/0f2j0f/wpewfew" },
-    { name: "Shop B", url: "https://example.com/shop-b" },
-    { name: "Shop C", url: "https://example.com/shop-c" },
-    { name: "Shop D", url: "https://example.com/shop-d" },
-    { name: "Shop E", url: "https://example.com/shop-e" },
-    { name: "Shop F", url: "https://example.com/shop-f" },
-    { name: "Shop G", url: "https://example.com/shop-g" },
-    { name: "Shop H", url: "https://example.com/shop-h" },
-    { name: "Shop I", url: "https://example.com/shop-i" },
-    { name: "Shop J", url: "https://example.com/shop-j" },
-    { name: "Shop K", url: "https://example.com/shop-k" },
-    { name: "Shop L", url: "https://example.com/shop-l" }
-  ]);
+  const [shops, setShops] = useState([]);
 
   useEffect(() => {
     fetchShops();
