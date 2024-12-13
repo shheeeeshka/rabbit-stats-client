@@ -66,8 +66,8 @@ function App() {
 
   const updateAllShops = async () => {
     setIsLoading(true);
-    await axios.get(API_URL + "/start-parsing-all")
-      .then((res) => setShops(res.data))
+    await axios.post(API_URL + "/start-parsing-all")
+      .then((res) => alert(`Обновлено!`))
       .catch((err) => {
         console.error(err);
         setError(err.message);
