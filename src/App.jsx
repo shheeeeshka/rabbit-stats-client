@@ -64,6 +64,17 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
+  const updateAllShops = async () => {
+    setIsLoading(true);
+    await axios.get(API_URL + "/start-parsing-all")
+      .then((res) => setShops(res.data))
+      .catch((err) => {
+        console.error(err);
+        setError(err.message);
+      })
+      .finally(() => setIsLoading(false));
+  };
+
   const fetchShopInfo = async (shopName = "") => {
     setIsLoading(true);
     await axios.get(API_URL + `/fetch-shop-info/${shopName}`)
@@ -144,6 +155,7 @@ function App() {
         <input style={{ padding: "6px" }} type="text" placeholder="Ссылка на магазин" onChange={(e) => setNewShopUrl(e.target.value)} />
         <span style={{ border: "1px solid", padding: "7px", cursor: "pointer" }} onClick={() => addNewShop()}>Добавить магазин</span>
       </div>
+      <span style={{ border: "1px solid", padding: "7px", cursor: "pointer" }} onClick={() => updateAllShops()}>Обновить все магазины</span>
       {
         displayModal && <div className="shop-modal">
           <h3>{modalInfo?.name}</h3>
