@@ -13,7 +13,7 @@ function App() {
   const [data, setData] = useState([]);
   const [newShopUrl, setNewShopUrl] = useState("");
   const [modalInfo, setModalInfo] = useState(null);
-  const [shops, setShops] = useState([]);
+  const [shops, setShops] = useState([{name: "", url: ""}]);
 
   useEffect(() => {
     fetchShops();
@@ -141,7 +141,7 @@ function App() {
       <div>
         <ul>
           {
-            shops?.length > 0 && shops?.map((shop, i) => (
+            Array.isArray(shops) && shops?.length > 0 && shops?.map((shop, i) => (
               <li key={i} onClick={() => { setModalInfo(shop); setDisplayModal(true); fetchShopInfo(shop.name); }}>
                 <span>{shop.name || ""}</span>
                 <span>{shop.url || ""}</span>
